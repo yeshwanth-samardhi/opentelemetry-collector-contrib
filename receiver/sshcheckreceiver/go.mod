@@ -23,7 +23,7 @@ require (
 	go.opentelemetry.io/collector/scraper/scraperhelper v0.141.0
 	go.uber.org/goleak v1.3.0
 	go.uber.org/multierr v1.11.0
-	golang.org/x/crypto v0.45.0
+	golang.org/x/crypto v0.46.0
 )
 
 require (
@@ -70,7 +70,7 @@ require (
 	go.opentelemetry.io/otel/metric v1.38.0 // indirect
 	go.opentelemetry.io/otel/trace v1.38.0 // indirect
 	go.uber.org/zap v1.27.1
-	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/sys v0.39.0 // indirect
 	google.golang.org/grpc v1.77.0 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
