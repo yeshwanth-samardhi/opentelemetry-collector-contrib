@@ -1,0 +1,44 @@
+dist:
+  name: otelcol-custom
+  description: "Custom Collector with Flipkart ELB Processor"
+  output_path: ./dist
+  version: "0.141.0"
+
+extensions:
+  # Health Check is in CONTRIB
+  - gomod: "github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextension v0.141.0"
+    path: /otel-contrib/extension/healthcheckextension
+
+  # ZPages is in CORE
+  - gomod: "go.opentelemetry.io/collector/extension/zpagesextension v0.141.0"
+    path: /otel-core/extension/zpagesextension
+
+exporters:
+  - gomod: "go.opentelemetry.io/collector/exporter/debugexporter v0.141.0"
+  - gomod: "go.opentelemetry.io/collector/exporter/otlpexporter v0.141.0"
+  - gomod: "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/kafkaexporter v0.141.0"
+
+receivers:
+  - gomod: "go.opentelemetry.io/collector/receiver/otlpreceiver v0.141.0"
+
+processors:
+  - gomod: "go.opentelemetry.io/collector/processor/batchprocessor v0.141.0"
+  - gomod: "go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.141.0"
+  - gomod: "github.com/open-telemetry/opentelemetry-collector-contrib/processor/attributesprocessor v0.141.0"
+  - gomod: "github.com/open-telemetry/opentelemetry-collector-contrib/processor/transformprocessor v0.141.0"
+  
+  # Your Custom Processor
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/processor/flipkartelbprocessor v0.0.0
+    path: /build/processor/flipkartelbprocessor
+
+replaces:
+  - "go.opentelemetry.io/collector v0.141.0 => go.opentelemetry.io/collector v0.141.0"
+  - "go.opentelemetry.io/collector/component v0.141.0 => go.opentelemetry.io/collector/component v0.141.0"
+  - "go.opentelemetry.io/collector/confmap v1.47.0 => go.opentelemetry.io/collector/confmap v1.47.0"
+  - "go.opentelemetry.io/collector/consumer v1.47.0 => go.opentelemetry.io/collector/consumer v1.47.0"
+  - "go.opentelemetry.io/collector/exporter v1.47.0 => go.opentelemetry.io/collector/exporter v1.47.0"
+  - "go.opentelemetry.io/collector/extension v1.47.0 => go.opentelemetry.io/collector/extension v1.47.0"
+  - "go.opentelemetry.io/collector/featuregate v1.47.0 => go.opentelemetry.io/collector/featuregate v1.47.0"
+  - "go.opentelemetry.io/collector/pdata v1.47.0 => go.opentelemetry.io/collector/pdata v1.47.0"
+  - "go.opentelemetry.io/collector/processor v1.47.0 => go.opentelemetry.io/collector/processor v1.47.0"
+  - "go.opentelemetry.io/collector/receiver v1.47.0 => go.opentelemetry.io/collector/receiver v1.47.0"
